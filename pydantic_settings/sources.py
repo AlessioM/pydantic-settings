@@ -1175,7 +1175,7 @@ class CliSettingsSource(EnvSettingsSource, Generic[T]):
                     val = val[1:-1]
                 while val:
                     if val.startswith(','):
-                        val = self._consume_comma(val, merged_list, is_last_consumed_a_value)
+                        val = self._consume_comma(val, merged_list, is_last_consumed_a_value).strip()
                         is_last_consumed_a_value = False
                     else:
                         if val.startswith('{') or val.startswith('['):
